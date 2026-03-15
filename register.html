@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% block title %}User Registration{% endblock %}
+
+{% block content %}
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .content-wrapper {
+        min-height: calc(100vh - 160px); /* Prevents overlap with header/footer */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    .form-container {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.12);
+        padding: 50px 45px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(14px);
+        color: #fff;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .form-container:hover {
+        background: rgba(255, 255, 255, 0.18);
+        transform: scale(1.02);
+    }
+
+    .form-container h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 30px;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    label {
+        display: block;
+        text-align: left;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 6px;
+        margin-top: 15px;
+        letter-spacing: 0.3px;
+    }
+
+    .form-control {
+        height: 50px;
+        border-radius: 10px;
+        padding: 0 14px;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        width: 100%;
+        background: #fff;
+        border: none;
+        color: #000;
+        outline: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    textarea.form-control {
+        height: 80px;
+        resize: none;
+        padding-top: 10px;
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 8px rgba(0, 198, 255, 0.6);
+        border: 2px solid #00c6ff;
+    }
+
+    .btn-success {
+        background: linear-gradient(90deg, #6a00f4, #00d4ff);
+        border: none;
+        height: 50px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 20px;
+        color: #fff;
+    }
+
+    .btn-success:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 18px rgba(0, 212, 255, 0.4);
+    }
+
+    .alert {
+        background: rgba(0, 255, 255, 0.25);
+        border: 1px solid rgba(0, 255, 255, 0.4);
+        color: #ccfaff;
+        border-radius: 8px;
+        font-weight: 500;
+        margin-top: 15px;
+        font-size: 1rem;
+    }
+
+    .login-link {
+        text-align: center;
+        color: #fff;
+        margin-top: 18px;
+        font-size: 1rem;
+    }
+
+    .login-link a {
+        color: #00d4ff;
+        text-decoration: none;
+        font-weight: 600;
+        background: rgba(0, 212, 255, 0.25);
+        padding: 4px 10px;
+        border-radius: 8px;
+        transition: 0.3s ease;
+    }
+
+    .login-link a:hover {
+        background: rgba(0, 212, 255, 0.6);
+        color: #fff;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 480px) {
+        .form-container {
+            padding: 30px 20px;
+        }
+
+        .form-control {
+            font-size: 1rem;
+            height: 45px;
+        }
+
+        .form-container h2 {
+            font-size: 1.6rem;
+        }
+    }
+</style>
+
+
+<div class="content-wrapper">
+    <div class="form-container">
+        <h2>User Registration</h2>
+        <form method="POST">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" class="form-control" placeholder="Enter Username" required>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="Enter Email Address" required>
+
+            <label for="contact">Contact Number</label>
+            <input type="tel" name="contact" id="contact" class="form-control" placeholder="Enter Contact Number" pattern="[0-9]{10}" maxlength="10" required>
+
+            <label for="address">Address</label>
+            <textarea name="address" id="address" class="form-control" placeholder="Enter Address" required></textarea>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password" required>
+
+            <button type="submit" class="btn btn-success">Register</button>
+        </form>
+
+        {% if message %}
+        <div class="alert">{{ message }}</div>
+        {% endif %}
+
+        <div class="login-link">
+            <p>Already have an account? <a href="/login">Login here</a></p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

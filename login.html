@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% block title %}User Login{% endblock %}
+
+{% block content %}
+<style>
+    /* Full-page center alignment */
+    .content-wrapper {
+        height: 85vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+    }
+
+    /* Glassmorphic login form */
+    .form-container {
+        width: 100%;
+        max-width: 480px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.12);
+        padding: 50px 40px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(14px);
+        color: #fff;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .form-container:hover {
+        background: rgba(255, 255, 255, 0.18);
+        transform: scale(1.02);
+    }
+
+    .form-container h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 30px;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Labels */
+    label {
+        display: block;
+        text-align: left;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 6px;
+        margin-top: 15px;
+        letter-spacing: 0.3px;
+    }
+
+    /* White input fields */
+    .form-control {
+        height: 50px;
+        border-radius: 10px;
+        padding: 0 14px;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        width: 100%;
+        background: #fff; /* 🔹 white background */
+        border: none;
+        color: #000; /* 🔹 dark text for readability */
+        outline: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 8px rgba(0, 198, 255, 0.6);
+        border: 2px solid #00c6ff;
+    }
+
+    .btn-primary {
+        background: linear-gradient(90deg, #007bff, #00c6ff);
+        border: none;
+        height: 50px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 20px;
+        color: #fff;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 18px rgba(0, 198, 255, 0.4);
+    }
+
+    .alert {
+        background: rgba(255, 0, 0, 0.25);
+        border: 1px solid rgba(255, 0, 0, 0.4);
+        color: #ffcccc;
+        border-radius: 8px;
+        font-weight: 500;
+        margin-top: 15px;
+        font-size: 1rem;
+    }
+
+    .register-link {
+        text-align: center;
+        color: #fff;
+        margin-top: 18px;
+        font-size: 1rem;
+    }
+
+    .register-link a {
+        color: #c77dff;
+        text-decoration: none;
+        font-weight: 600;
+        background: rgba(100, 0, 255, 0.4);
+        padding: 4px 10px;
+        border-radius: 8px;
+        transition: 0.3s ease;
+    }
+
+    .register-link a:hover {
+        background: rgba(100, 0, 255, 0.7);
+        color: #fff;
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="form-container">
+        <h2> User Login</h2>
+        <form method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
+        {% if message %}
+        <div class="alert">{{ message }}</div>
+        {% endif %}
+
+        <div class="register-link">
+            <p>Don’t have an account? <a href="/register">Register here</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

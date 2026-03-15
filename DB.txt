@@ -1,0 +1,11 @@
+CREATE DATABASE flask_app_db;
+USE flask_app_db;
+
+CREATE TABLE  users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    contact VARCHAR(20),
+    address TEXT,
+    password VARCHAR(100) NOT NULL
+);

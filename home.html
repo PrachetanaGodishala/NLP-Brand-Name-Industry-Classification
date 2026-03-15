@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - AI Brand Name Generation{% endblock %}
+
+{% block content %}
+<style>
+    .home-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 60vh; /* lowered from 80vh to bring text up */
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+        color: #fbfbfb;
+        margin-top: -60px; /* pushes upward slightly */
+    }
+
+    .home-container h2 {
+        font-size: 40px;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+
+    .home-container p {
+        font-size: 1.6rem;
+        max-width: 1000px;
+        line-height: 1.6;
+        color: #ffffff;
+    }
+
+    /* subtle shadow for better contrast on image */
+    .home-container h2, .home-container p {
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    }
+</style>
+
+<div class="home-container">
+    <h2>Welcome to AI and NLP Brand Name Generation & Evaluation</h2>
+    <p>Experience AI-driven creativity powered by advanced NLP models for generating, refining, and evaluating brand names with contextual intelligence and linguistic precision.</p>
+</div>
+{% endblock %}
